@@ -1,7 +1,6 @@
 :root{
     --accent-color: #ff5c5c;
     --background-color: #0f0f0f;
-    --navbar-color: #1d1e22;
     --surface-color: #1d1e22;
     --surface-secondary: #2a2c33;
     --text-primary: #fdfdfd;
@@ -141,7 +140,7 @@ a:focus-visible{
 }
 
 .secondary-btn{
-    border: 1px solid rgba(250, 98, 95, 0.3);
+    border: 1px solid var(--border-color);
     color: var(--text-primary);
 }
 
@@ -201,7 +200,7 @@ p{
 
 .tech-stack span{
     background-color: var(--surface-color);
-    border: 1px solid rgba(250, 98, 95, 0.25);
+    border: 1px solid var(--border-color);
     padding: 0.8rem 1.4rem;
     border-radius: 14px;
     font-size: 1rem;
@@ -232,7 +231,7 @@ p{
 
 .project-card{
     background-color: var(--surface-color);
-    border: 1px solid rgba(250, 98, 95, 0.3);
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 2rem;
     display: flex;
@@ -268,7 +267,7 @@ p{
 
 .project-stack span{
     background-color: var(--surface-secondary);
-    border: 1px solid rgba(250, 98, 95, 0.3);
+    border: 1px solid var(--border-color);
     padding: 0.45rem 0.9rem;
     border-radius: 10px;
     font-size: 0.9rem;
@@ -346,11 +345,18 @@ footer{
 
 footer p{margin: 0;}
 
+.mobile-nav{display: none;}
+
 @media (max-width: 1024px){
+
     .projects-wrapper{grid-template-columns: repeat(2, 1fr);}
+
 }
 
 @media (max-width: 768px){
+
+    footer{margin-bottom: 58px;}
+
     .navbar-links{
         gap: 1.5rem;
         flex-wrap: wrap;
@@ -372,15 +378,34 @@ footer p{margin: 0;}
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
     }
+
+    .navbar{display: none;}
+
+        .mobile-nav{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 0;
+        background-color: var(--surface-color);
+        border-top: 1px solid var(--border-color);
+        z-index: 1000;
+    }
+
+    .mobile-nav a{
+        color: var(--text-primary);
+        font-size: 1.3rem;
+    }
+
 }
 
 @media (prefers-reduced-motion: reduce){
 
-    html{
-        scroll-behavior: auto;
-    }
+    html{scroll-behavior: auto;}
 
-    *{
-        transition: none !important;
-    }
+    *{transition: none !important;}
+
 }
